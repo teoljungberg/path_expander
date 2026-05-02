@@ -177,6 +177,12 @@ class TestPathExpander < Minitest::Test
                         "42")
   end
 
+  def test_process_args_absolute_path
+    assert_process_args(%w[test/test_path_expander.rb],
+                        %w[],
+                        "#{Dir.pwd}/test/test_path_expander.rb")
+  end
+
   def test_process_args_root
     assert_process_args(%w[],
                         %w[-n /./],
